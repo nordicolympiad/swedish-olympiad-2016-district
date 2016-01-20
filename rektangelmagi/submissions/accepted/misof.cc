@@ -55,7 +55,7 @@ int main() {
 	}
 
 	// if we got a contradiction, report that there is no solution
-	for (int r=4; r<int(A.size()); ++r) if (A[r][4]!=0) { cout << "No solution.\n"; return 0; }
+	for (int r=4; r<int(A.size()); ++r) if (A[r][4]!=0) { cout << "ej magisk\n"; return 0; }
 
 	// reconstruct the fractions from the triangular matrix
 	fraction x4 = fraction(A[3][4], A[3][3]);

@@ -8,16 +8,17 @@ from sys import stdin, exit, argv
 import re
 
 def die(msg):
-	exit(43)
+  print(msg)
+  exit(43)
 
 def accept():
   exit(42)
 
-fin, fcor, fhis = open(argv[0],'r'), open(argv[1],'r'), stdin
+fin, fcor, fhis = open(argv[1],'r'), open(argv[2],'r'), stdin
 from fractions import Fraction
 
 correct = fcor.read().strip()
-if correct=='ej magisk':
+if correct=='No solution.':
   outputdata = fhis.read().strip()
   if outputdata=='ej magisk': accept()
   else: die("failed to detect that there is no solution")
