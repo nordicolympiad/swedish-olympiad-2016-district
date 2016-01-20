@@ -9,7 +9,7 @@ setup_dirs
 use_solution js_100.cpp
 
 # Compile generators
-compile random.py # Arguments: length seed
+compile gen-random.py # Arguments: length seed
 
 # Generate answers to sample cases
 samplegroup
@@ -20,10 +20,10 @@ sample sample03_single
 # Add a new testdata group
 group simple 7
 # Note: tc automatically adds a deterministic, pseudo-random seed argument to your generator
-tc exact random 10
-tc one_off_01 random 11
-tc one_off_02 random 11
-tc one_off_03 random 11
+tc exact gen-random 10
+tc one_off_01 gen-random 11
+tc one_off_02 gen-random 11
+tc one_off_03 gen-random 11
 
 group cubic 11
 include_group simple
