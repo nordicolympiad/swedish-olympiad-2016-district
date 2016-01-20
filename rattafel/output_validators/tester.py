@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 
 # tester for the task "ratta fel"
 # usage: ./tester.py input_file correct_output score < contestants_output
@@ -23,9 +23,9 @@ def accept(score):
 fin, fcor, fhis = open(argv[1],'r'), open(argv[2],'r'), stdin
 from fractions import Fraction
 
-in_text = fin.read().strip().replace("\n", "")
-team_text = fhis.read().strip().replace("\n", "")
-correct = fcor.read().strip().replace("\n", "")
+in_text = fin.read().replace("\n", "")
+team_text = fhis.read().replace("\n", "")
+correct = fcor.read().replace("\n", "")
 
 if len(team_text) != len(in_text):
     die("Bad length")
