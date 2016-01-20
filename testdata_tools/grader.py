@@ -25,7 +25,7 @@ def main():
             for case in GROUP_CASES[group]:
                 if scores[case] == 0:
                     group_score = 0
-        score += group_score
+            score += group_score
         print "AC %s" % score
     else:
         for line in sys.stdin.readlines():

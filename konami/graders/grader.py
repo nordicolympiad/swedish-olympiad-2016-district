@@ -1,5 +1,5 @@
 GROUP_SCORES = [7, 11, 12, 20]
-GROUP_CASES = [[3, 0, 1, 2], [3, 0, 1, 2], [3, 0, 1, 2], [3, 0, 1, 2]]
+GROUP_CASES = [[1, 3, 0, 2], [1, 3, 0, 2], [1, 3, 0, 2], [1, 3, 0, 2]]
 import sys
 
 def is_int(arg):
@@ -27,7 +27,7 @@ def main():
             for case in GROUP_CASES[group]:
                 if scores[case] == 0:
                     group_score = 0
-        score += group_score
+            score += group_score
         print "AC %s" % score
     else:
         for line in sys.stdin.readlines():

@@ -65,9 +65,9 @@ setup_dirs () {
   rm -f groups cases
   mkdir -p secret
   echo "grading: custom
-  grader_flags: ignore" > sample/testdata.yaml
+grader_flags: ignore" > sample/testdata.yaml
   echo "grading: custom
-  grader_flags: groups" > secret/testdata.yaml
+grader_flags: groups" > secret/testdata.yaml
 }
 
 # Solve a test case using the solution
