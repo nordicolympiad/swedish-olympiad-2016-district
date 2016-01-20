@@ -23,9 +23,9 @@ def accept(score):
 fin, fcor, fhis = open(argv[1],'r'), open(argv[2],'r'), stdin
 from fractions import Fraction
 
-in_text = fin.read().strip()
-team_text = fhis.read().strip()
-correct = fcor.read().strip()
+in_text = fin.read().strip().replace("\n", "")
+team_text = fhis.read().strip().replace("\n", "")
+correct = fcor.read().strip().replace("\n", "")
 
 if len(team_text) != len(in_text):
     die("Bad length")
