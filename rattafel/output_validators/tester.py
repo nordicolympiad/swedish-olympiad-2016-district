@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 # tester for the task "ratta fel"
-# usage: ./tester.py input_file correct_output score < contestants_output
+# usage: ./tester.py input_file correct_output output_dir score < contestants_output
 
 import os
 from sys import stdin, exit, argv
@@ -10,13 +10,13 @@ import re
 def die(msg):
     print(msg)
     f = open(argv[3] + os.sep + "score.txt", "wb+")
-    f.write("0")
+    f.write(b"0")
     f.close()
     exit(43)
 
 def accept(score):
     f = open(argv[3] + os.sep + "score.txt", "wb+")
-    f.write("%f" % score)
+    f.write(bytes("%f" % score), 'utf-8')
     f.close()
     exit(42)
 
