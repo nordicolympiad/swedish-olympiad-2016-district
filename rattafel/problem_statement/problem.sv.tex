@@ -1,9 +1,10 @@
 \problemname{Rätta fel}
 
-Givet en text på svenska, där vissa tecken har blivit ersatta med \texttt{#}, avgör vilka tecken som skulle stått där egentligen.
+Givet en text på engelska, där vissa tecken har blivit ersatta med \texttt{#}, avgör vilka tecken som skulle stått där egentligen.
 
 \section*{Indata}
-Indata består av ett heltal $N$, följt av $N$ rader text.
+Indata består av en enda rad med tecken \texttt{a-z, A-Z, 0-9}, skiljetecknen \texttt{.,-:;!?"'}, samt blanksteg.
+Ingen testdatafil består av mer än $1\,000\,000$ tecken, inklusive 
 
 \section*{Utdata}
 För varje förekomst av \texttt{#} i indatat ska du skriva ut en rad med vilken bokstav som egentligen skulle varit där.
@@ -12,6 +13,18 @@ Alla tecken kan ha blivit ersatta, inklusive mellanslag och skiljetecken. Om du 
 
 \section*{Poäng}
 
-Detta poäng kan ge upp till 110 poäng. Om du korrekt rättar \texttt{M} fel och det totalt finns \texttt{N} fel får du 
-$$110 \cdot \frac{M}{N}$$
+Det finns tre testfall ditt program kommer köras på.
+\begin{enumerate}
+  \item I ett testfall värt 15 poäng kommer högst en bokstav per ord att ersättas. Inga mellanslag eller skiljetecken kommer ersättas.
+  \item I ett testfall värt 25 poäng kommer $10\%$ slumpmässiga tecken bytas ut.
+  \item I ett testfall värt 30 poäng kommer $70\%$ slumpmässiga tecken bytas ut.
+  \item I ett testfall värt 40 poäng finns inga extra garantier.
+\end{enumerate}
+
+Detta poäng kan alltså ge totalt 110 poäng.
+
+Om du på ett visst testfall, som ger $P$ poäng, rättar \texttt{M} fel och det totalt finns \texttt{N} fel får du 
+$$P \cdot \frac{M}{N}$$
 poäng, avrundat nedåt.
+
+Din totala poäng är summan av poängen för de olika testfallen.
