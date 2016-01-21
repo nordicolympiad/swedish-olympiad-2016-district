@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys
 import random
 
@@ -5,5 +6,9 @@ needle = "UUNNVHVHBA"
 alphabet = "UNHVBA"
 n = int(sys.argv[1])
 random.seed(int(sys.argv[2]))
+ar = [random.choice(alphabet) for _ in range(n)]
+exc = sorted(random.sample(range(n), len(needle)))
+for pos, ch in zip(exc, needle):
+    ar[pos] = ch
 
-print(needle)
+print(''.join(ar))
