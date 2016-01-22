@@ -3,9 +3,9 @@ import sys
 import random
 
 needle = "UUNNVHVHBA"
-alphabet = "UNHVBA"
-n = int(sys.argv[1])
-random.seed(int(sys.argv[2]))
+alphabet = sys.argv[1] or "UNHVBA"
+n = int(sys.argv[2])
+random.seed(int(sys.argv[3]))
 ar = [random.choice(alphabet) for _ in range(n)]
 exc = sorted(random.sample(range(n), len(needle)))
 for pos, ch in zip(exc, needle):
