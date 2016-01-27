@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys
 import random
 
@@ -21,8 +22,9 @@ def board_full(board):
 
 state_winners = {}
 def state_winner(board, turn):
-    if (board, turn) in state_winners:
-        return state_winners[(board, turn)]
+    key = (tuple(board), turn)
+    if key in state_winners:
+        return state_winners[key]
     win = board_winner(board)
     if win != 0 or board_full(board):
         return (win, -1)
@@ -44,7 +46,7 @@ def state_winner(board, turn):
             opt_move = i
             break
     ret = (win, opt_move)
-    state_winners[(board, turn)] = ret
+    state_winners[key] = ret
     return ret
 
 def random_runner():
@@ -71,13 +73,15 @@ def safe_print(n):
 def print_board(board):
     lut = 'o.x'
     for i in range(3):
+        li = ''
         for c in board[3*i:3*(i+1)]:
-            safe_print(lut[c+1])
+            li += lut[c+1]
+        safe_print(li)
 
 def pl_move(board):
     s2 = ''
     for i in range(3):
-        s = input()
+        s = input().strip()
         if len(s) != 3:
             sys.exit(43)
         s2 += s
@@ -124,7 +128,7 @@ def main():
         global the_turn, the_board
         the_board = board
         the_turn = -1
-        v = g[0].next()
+        v = next(g[0])
         assert 0 <= v < 9
         assert board[v] == 0
         board[v] = -1
@@ -134,11 +138,15 @@ def main():
     try:
         if starting:
             safe_print("first")
+            safe_print('...')
+            safe_print('...')
+            safe_print('...')
             turn = 1
         else:
             safe_print("second")
             turn = -1
             ai_move(board)
+            turn = 1
 
         had_win = False
         while board_winner(board) == 0 and not board_full(board):
