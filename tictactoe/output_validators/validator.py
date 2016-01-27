@@ -28,7 +28,9 @@ def state_winner(board, turn):
         return (win, -1)
     win = -turn
     opt_move = -1
-    for i in range(9):
+    perm = list(range(9))
+    random.shuffle(perm)
+    for i in perm:
         if board[i] != 0:
             continue
         board[i] = turn
@@ -45,7 +47,6 @@ def state_winner(board, turn):
     state_winners[(board, turn)] = ret
     return ret
 
-SwitchToRandom = {}
 def random_runner():
     perm = list(range(9))
     random.shuffle(perm)
@@ -57,9 +58,8 @@ def random_runner():
 def opt_runner():
     while True:
         w = state_winner(the_board, the_turn)
-        if w[0] != -the_turn:
-            yield w[1]
-        yield SwitchToRandom
+        assert w[0] != -the_turn
+        yield w[1]
 
 def safe_print(n):
     try:
@@ -104,8 +104,8 @@ def pl_move(board):
     return b2
 
 def main():
-    [case, starting, strategy] = map(int, open(sys.argv[1], 'r').read().strip().split())
-    random.seed(strategy*1000 + case)
+    [case, starting, strategy, seed] = map(int, open(sys.argv[1], 'r').read().strip().split())
+    random.seed(seed*100 + strategy*8 + starting*4 + case)
 
     starting = (starting == 1)
     board = [0] * 9
@@ -125,9 +125,6 @@ def main():
         the_board = board
         the_turn = -1
         v = g[0].next()
-        if v == SwitchToRandom:
-            g[0] = random_runner()
-            v = g[0].next()
         assert 0 <= v < 9
         assert board[v] == 0
         board[v] = -1
@@ -149,7 +146,7 @@ def main():
                 board = ai_move(board)
                 turn = 1
             else:
-                if state_winner(board, 1) == 1:
+                if state_winner(board, 1)[0] == 1:
                     had_win = True
                 board = pl_move(board)
                 turn = -1
