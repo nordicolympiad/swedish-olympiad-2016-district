@@ -18,7 +18,7 @@ fin, fcor, fhis = open(argv[1],'r'), open(argv[2],'r'), stdin
 from fractions import Fraction
 
 correct = fcor.read().strip()
-if correct=='No solution.':
+if correct=='ej magisk':
   outputdata = fhis.read().strip()
   if outputdata=='ej magisk': accept()
   else: die("failed to detect that there is no solution")

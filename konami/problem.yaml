@@ -5,3 +5,4 @@ license: cc by-sa
 rights_owner: Programmeringsolympiaden
 grading:
   range: 0 50
+  on_reject: grade

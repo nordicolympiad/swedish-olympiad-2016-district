@@ -5,18 +5,21 @@
 
 import os
 from sys import stdin, exit, argv
+import sys
 import re
+
+if sys.version_info < (2, 8): sys.exit(40)
 
 def die(msg):
     print(msg)
-    f = open(argv[3] + os.sep + "score.txt", "wb+")
-    f.write(b"0")
+    f = open(argv[3] + os.sep + "score.txt", "wt+", encoding="utf-8")
+    f.write("0")
     f.close()
     exit(43)
 
 def accept(score):
-    f = open(argv[3] + os.sep + "score.txt", "wb+")
-    f.write(bytes("%f" % score), 'utf-8')
+    f = open(argv[3] + os.sep + "score.txt", "wt+", encoding="utf-8")
+    f.write("%f" % score)
     f.close()
     exit(42)
 

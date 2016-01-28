@@ -12,7 +12,7 @@ def is_int(arg):
 
 def main():
     if "ignore" in sys.argv:
-        print "AC 0"
+        print ("AC 0")
     elif "groups" in sys.argv:
         scores = []
         for line in sys.stdin.readlines():
@@ -28,10 +28,9 @@ def main():
                 if scores[case] == 0:
                     group_score = 0
             score += group_score
-        print "AC %s" % score
+        print ("AC %d" % score)
     else:
-        for line in sys.stdin.readlines():
-            print line
+        assert False
 
 main()
 

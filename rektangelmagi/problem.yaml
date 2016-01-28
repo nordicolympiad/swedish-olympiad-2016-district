@@ -7,3 +7,4 @@ validation: custom
 grading:
   range: 0 100
   accept_score: 10
+  on_reject: grade
