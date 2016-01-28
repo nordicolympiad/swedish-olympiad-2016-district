@@ -6,7 +6,7 @@ PPATH=$(realpath ..)
 setup_dirs
 
 # Choose your solution
-use_solution js_100.cpp
+use_solution js_solve.cpp
 
 # Compile generators
 compile fish-gen.py # Arguments: length seed
@@ -16,32 +16,54 @@ samplegroup
 sample sample
 
 # Add a new testdata group
-group simple 7
-# Note: tc automatically adds a deterministic, pseudo-random seed argument to your generator
-tc exact gen-random '' 10
-tc one_off_01 gen-random '' 11
-tc one_off_02 gen-random '' 11
-tc one_off_03 gen-random '' 11
 
-group cubic 11
-include_group simple
-tc rand100 gen-random '' 100
-tc sparse100 gen-random UNVA 100
+add_case() {
+  for x in texts/*
+  do
+    txt=`basename $x`
+    transform=$1
+    keylen=$2
+    echo $txt $keylen $transform
+    tc "$txt-$transform-$keylen" fish-gen $txt $keylen $transform
+  done
+}
 
-group quadratic 12
-include_group cubic
-tc rand3000 gen-random '' 3000
-tc sparse3000 gen-random UNVA 3000
-tc sparse3000-2 gen-random UA 2999
+group single-az 6
+add_case az 1
 
-group nlogn 20
-include_group quadratic
-tc rand200000 gen-random '' 200000
-tc sparse200000 gen-random UNVA 200000
-tc sparse200000-2 gen-random UA 199997
+group single 10
+add_case none 1
 
-# Cleanup programs
-cleanup_programs
+group five-fisk 12
+add_case fisk 3
+add_case fisk 4
+add_case fisk 5
 
-# Generate grader
-generate_grader
+group five-az 17
+add_case az 3
+add_case az 4
+add_case az 5
+
+group five 24
+include_group single
+include_group five-az
+include_group five_fisk
+add_case none 3
+add_case none 4
+add_case none 5
+
+group ten-az 39
+include_group five-az
+add_case az 8
+add_case az 9
+add_case az 10
+
+group ten 45
+include_group five
+include_group ten-az
+add_case none 8
+add_case none 9
+add_case none 10
+
+group flagpole 5
+add_case flagpole 15

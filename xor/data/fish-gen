@@ -11,9 +11,15 @@ def fish(txt):
 def az(txt):
     ntxt = []
     for i in txt:
-        if txt in string.ascii_lowercase:
+        if i in string.ascii_lowercase or i == ' ':
             ntxt.append(i)
     return ''.join(ntxt)
+
+def flagpole(txt):
+    mid = random.randint(0, len(txt))
+    a = txt[:mid]
+    b = txt[mid:]
+    return a + " flaggstangsknoppspoleringsmedel " + b
 
 def encode(txt, key):
     ntxt = []
@@ -29,28 +35,25 @@ def hexa(txt):
         ans += i
     return ans
 
-random.seed(int(sys.argv[1]))
+random.seed(int(sys.argv[4]))
 
-path = "texts/" + sys.argv[2]
+path = "texts/" + sys.argv[1]
 
-keylen = int(sys.argv[3])
+keylen = int(sys.argv[2])
 
 space = [i for i in range(256)]
-# key = [random.choice(space) for i in range(keylen)]
-key = [ord(x) for x in "fisk"]
+key = [random.choice(space) for i in range(keylen)]
+# key = [ord(x) for x in "fisk"]
 
-transform = sys.argv[4]
+transform = sys.argv[3]
 
 f = open(path, "r").read()
 
-if transform == 'fish': f = fish(f)
+if transform == 'fisk': f = fish(f)
 if transform == 'az': f = az(f)
-
-print(f)
+if transform == 'flagpole': f = flagpole(f)
 
 f = encode(f, key)
-
-print(f)
 
 f = hexa(f)
 
