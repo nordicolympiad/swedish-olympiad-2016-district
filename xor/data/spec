@@ -39,7 +39,7 @@ add_case fisk 3
 add_case fisk 4
 add_case fisk 5
 
-group five-az 17
+group five-az 19
 add_case az 3
 add_case az 4
 add_case az 5
@@ -52,18 +52,25 @@ add_case none 3
 add_case none 4
 add_case none 5
 
-group ten-az 39
+group ten-az 33
 include_group five-az
 add_case az 8
 add_case az 9
 add_case az 10
 
-group ten 45
+group ten 41
 include_group five
 include_group ten-az
 add_case none 8
 add_case none 9
 add_case none 10
 
-group flagpole 5
+group flagpole 15
 add_case flagpole 15
+
+# Cleanup programs
+cleanup_programs
+
+# Generate grader
+generate_grader
+
