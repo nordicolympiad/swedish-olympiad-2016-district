@@ -6,3 +6,4 @@ license: cc by-sa
 validation: custom interactive
 grading:
   range: 0 70
+  on_reject: grade
