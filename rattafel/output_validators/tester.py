@@ -8,8 +8,6 @@ from sys import stdin, exit, argv
 import sys
 import re
 
-if sys.version_info < (2, 8): sys.exit(40)
-
 def die(msg):
     print(msg)
     f = open(argv[3] + os.sep + "score.txt", "wt+", encoding="utf-8")
@@ -27,8 +25,13 @@ fin, fcor, fhis = open(argv[1],'r'), open(argv[2],'r'), stdin
 from fractions import Fraction
 
 in_text = fin.read().replace("\n", "")
-team_text = fhis.read().replace("\n", "")
+try:
+    team_text = fhis.read().replace("\n", "")
+except UnicodeDecodeError:
+    die("not valid encoding")
 correct = fcor.read().replace("\n", "")
+
+assert len(correct) == len(in_text)
 
 if len(team_text) != len(in_text):
     die("Bad length")
