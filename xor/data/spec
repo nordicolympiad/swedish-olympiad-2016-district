@@ -9,13 +9,11 @@ setup_dirs
 use_solution js_100.cpp
 
 # Compile generators
-compile gen-random.py # Arguments: length seed
+compile fish-gen.py # Arguments: length seed
 
 # Generate answers to sample cases
 samplegroup
-sample sample01_trivial
-sample sample02_example
-sample sample03_single
+sample sample
 
 # Add a new testdata group
 group simple 7
