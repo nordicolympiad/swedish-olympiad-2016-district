@@ -14,6 +14,15 @@ def die(msg):
 def accept():
   exit(42)
 
+def tofrac(x):
+    if '/-' in x:
+        x = x.replace('/-', '/')
+        if x.startswith('-'):
+            x = x[1:]
+        else:
+            x = '-' + x
+    return Fraction(x)
+
 fin, fcor, fhis = open(argv[1],'r'), open(argv[2],'r'), stdin
 from fractions import Fraction
 
@@ -31,20 +40,20 @@ if len(outputdata) != R: die("incorrect number of rows")
 for x in outputdata:
   if len(x) != C: die("incorrect number of tokens in a row")
 
-for r in range(R):
-  for c in range(C):
-    if inputdata[r][c]!='.':
-      if outputdata[r][c]!=inputdata[r][c]:
-        die("one of the input values was modified")
-
 allowed = re.compile('-?[0-9]{1,20}(/-?[0-9]{1,20})?$')
 for r in range(R):
   for c in range(C):
     if not allowed.match(outputdata[r][c]):
       die("some token is not a properly formatted fraction")
 
-try: foutputdata = [ [ Fraction(x) for x in y ] for y in outputdata ]
+try: foutputdata = [ [ tofrac(x) for x in y ] for y in outputdata ]
 except: die("failed to parse some token as a fraction")
+
+for r in range(R):
+  for c in range(C):
+    if inputdata[r][c] != '.':
+      if foutputdata[r][c] != tofrac(inputdata[r][c]):
+        die("one of the input values was modified")
 
 def is_arithmetic(seq):
   if len(seq)<=1: return True
