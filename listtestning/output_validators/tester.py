@@ -1,19 +1,28 @@
 #!/usr/bin/env python3
 
-# usage: ./tester.py input_file correct_output < contestants_output
+# usage: ./tester.py input_file correct_output output_dir score < contestants_output
 
 import sys
 import re
-
-def die(msg):
-  print(msg)
-  sys.exit(43)
-
-def accept():
-  sys.exit(42)
+import os
 
 wanted = open(sys.argv[1],'r').read()
 wanted = int(wanted) if wanted else 0
+full_score = float(sys.argv[4])
+
+def write_score(score):
+    f = open(sys.argv[3] + os.sep + "score.txt", "wt+", encoding="utf-8")
+    f.write(str(score))
+    f.close()
+
+def die(msg):
+    print(msg)
+    write_score(0)
+    sys.exit(43)
+
+def accept(success):
+    write_score(full_score if success else 0)
+    sys.exit(42)
 
 nargs = {
     '---': 0,
@@ -126,8 +135,4 @@ try:
 except ValueError:
     die("unparsable")
 
-if success or wanted == 0:
-    accept()
-else:
-    die("didn't trigger edge case")
-
+accept(success)
