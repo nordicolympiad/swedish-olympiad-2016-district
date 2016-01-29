@@ -1,0 +1,23 @@
+\problemname{Email-parsing}
+
+TODO
+
+För enkelhets skull kommer varje rad att termineras med en enkel LF i stället för en CRLF som i vanlig HTTP.
+
+Till skillnad från en riktig email-klient kan du anta att saker och ting kommer att vara snälla.
+T.ex. kommer Content-Type-headern alltid att vara på en rad, och all HTML vara fri från syntaxfel.
+
+\section*{Indata}
+Indata innehåller ett email, se exempel nedan.
+
+\section*{Utdata}
+Du ska skriva ut den extraherade texten. Extra nyrader i början/slutet godtas.
+
+\section*{Poäng}
+
+\begin{enumerate}
+	\item[15 poäng] det kommer bara finnas en enda multipart-del, och den är av typen "text/plain".
+	\item[25 poäng] den föredragna delen kommer att vara av typ "text/plain".
+	\item[20 poäng] den föredragna delen kommer att vara av typ "text/plain", och kommer att kodas med "Content-Transfer-Encoding: quoted-printable".
+  \item[20 poäng] och föredragna delen kommer att vara av typ "text/html". Alla <HTML-taggar> och &entiteter; ska tas bort.
+\end{enumerate}
