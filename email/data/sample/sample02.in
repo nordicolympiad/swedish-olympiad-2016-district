@@ -1,49 +1,26 @@
 Delivered-To: simon.lindholm10@gmail.com
 Received: by 10.112.155.195 with SMTP id vy3csp710980lbb;
         Thu, 28 Jan 2016 14:08:38 -0800 (PST)
-X-Received: by 10.98.12.21 with SMTP id u21mr8173067pfi.36.1454018917973;
-        Thu, 28 Jan 2016 14:08:37 -0800 (PST)
 Return-Path: <simonlindholm@fastmail.fm>
 Received: from out3-smtp.messagingengine.com (out3-smtp.messagingengine.com. [66.111.4.27])
         by mx.google.com with ESMTPS id wb3si19310522pab.114.2016.01.28.14.08.37
         for <simon.lindholm10@gmail.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
         Thu, 28 Jan 2016 14:08:37 -0800 (PST)
-Received-SPF: pass (google.com: domain of simonlindholm@fastmail.fm designates 66.111.4.27 as permitted sender) client-ip=66.111.4.27;
-Authentication-Results: mx.google.com;
-       spf=pass (google.com: domain of simonlindholm@fastmail.fm designates 66.111.4.27 as permitted sender) smtp.mailfrom=simonlindholm@fastmail.fm;
-       dkim=pass header.i=@fastmail.fm;
-       dkim=pass header.i=@messagingengine.com
 Received: from compute2.internal (compute2.nyi.internal [10.202.2.42])
 	by mailout.nyi.internal (Postfix) with ESMTP id 965F620767
 	for <simon.lindholm10@gmail.com>; Thu, 28 Jan 2016 17:08:34 -0500 (EST)
 Received: from web5 ([10.202.2.215])
   by compute2.internal (MEProxy); Thu, 28 Jan 2016 17:08:34 -0500
-DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; d=fastmail.fm; h=
-	content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to:x-sasl-enc
-	:x-sasl-enc; s=mesmtp; bh=3IfVQDYI17R+C/HUYTjpvCX0lxs=; b=b3TgAq
-	1NkEPE+phGuNmrRXDp0Eo5SChCFT/z2x64rKT4olUyJn66puu0AxkmksDeIsZtOW
-	ES76PDK2jZ41HSuTuZ4wwyUjCM4EaMEjnDW+LoLDOq29m6/7OAU6DrK5R8/tuBpz
-	XbF5HM42r2ollJS327FkWmOgPMlGRKbM2CTjM=
-DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; d=
-	messagingengine.com; h=content-transfer-encoding:content-type
-	:date:from:in-reply-to:message-id:mime-version:references
-	:subject:to:x-sasl-enc:x-sasl-enc; s=smtpout; bh=3IfVQDYI17R+C/H
-	UYTjpvCX0lxs=; b=EUF2duN+vbZ160ZTMZHNOJi6zz4Kn6pM3K/SzvT7RnvX/E3
-	V5FVUV7rSFcP1+hy/eSWdddNXwjwX9gf0ACY6SHsqyt9H0J8tiyby8WgT3gk4KVL
-	n1yExNdXJI9aGnCERtnGjs2hKlkXnLhhRfBOFGQ9XiJYoPlmkehtyLjSpDNw=
 Received: by web5.nyi.internal (Postfix, from userid 99)
 	id 26696A70216; Thu, 28 Jan 2016 17:08:34 -0500 (EST)
 Message-Id: <1454018914.1678085.505620754.5295DB0C@webmail.messagingengine.com>
-X-Sasl-Enc: /M6bclY0kJrzdo/hgtZ45KesQcS8j5kN+AxN90Acdc8h 1454018914
 From: Simon Lindholm <simonlindholm@fastmail.fm>
 To: Simon Lindholm <simon.lindholm10@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
 Content-Type: multipart/alternative; boundary="_----------=_145401891416780850";
   charset="utf-8"
-X-Mailer: MessagingEngine.com Webmail Interface - ajax-6cda141f
 Subject: Re: test
 Date: Thu, 28 Jan 2016 23:08:34 +0100
 In-Reply-To: <CAK=Tff0+3K4tXGvYh+VG-qP6Ldz+q-+jaZW2Q01dkL4fDQxGkw@mail.gmail.com>

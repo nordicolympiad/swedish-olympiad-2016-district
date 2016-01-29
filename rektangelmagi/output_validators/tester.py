@@ -37,7 +37,7 @@ for r in range(R):
       if outputdata[r][c]!=inputdata[r][c]:
         die("one of the input values was modified")
 
-allowed = re.compile('-?[0-9]{1,20}(?!/1$)(/[0-9]{1,20})?$')
+allowed = re.compile('-?[0-9]{1,20}(/-?[0-9]{1,20})?$')
 for r in range(R):
   for c in range(C):
     if not allowed.match(outputdata[r][c]):
