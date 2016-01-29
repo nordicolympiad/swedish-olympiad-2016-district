@@ -14,7 +14,9 @@ För att lösa denna uppgift REKOMMENDERAS det att läsa följande specifikation
 	\item RFC 3676: https://www.ietf.org/rfc/rfc3676.txt
 \end{itemize}
 
-Du kommer få email i formatet som beskrivs av RFC 2822.  Din uppgift är att hitta en föredragen del i detta email, vars innehåll är ett MIME-meddelande, som specifierat i RFC 2045 och RFC 2046. Meddelandet kommer alltid vara av typen \texttt{multipart/alternative}. Den föredragna delen i meddelandet är antingen av typen \texttt{text/html}, som beskrivs i RFC 1866, eller typen \texttt{text/plain}, som beskrivs i RFC 3676. Teckenkodningen kommer att vara ASCII, som beskriven i RFC 20.
+Du kommer få email i formatet som beskrivs av RFC 2822.  Din uppgift är att hitta en föredragen del i detta email, vars innehåll är ett MIME-meddelande, som specifierat i RFC 2045 och RFC 2046. Texten i denna del SKALL du sedan skriva ut.
+
+Meddelandet kommer alltid vara av typen \texttt{multipart/alternative}. Den föredragna delen i meddelandet är antingen av typen \texttt{text/html}, som beskrivs i RFC 1866, eller typen \texttt{text/plain}, som beskrivs i RFC 3676. Teckenkodningen kommer att vara ASCII, som beskriven i RFC 20.
 
 
 För enkelhets skull kommer varje rad att termineras med en enkel LF i stället för en CRLF som i vanlig HTTP 1.1 (beskriven i RFC 2616).
@@ -33,5 +35,5 @@ Du SKALL skriva ut den extraherade texten och inget annat. Extra nyrader i börj
 	\item[20 poäng] det kommer bara finnas en enda multipart-del, och den är av typen "text/plain".
 	\item[30 poäng] den föredragna delen kommer att vara av typ "text/plain".
 	\item[25 poäng] den föredragna delen kommer att vara av typ "text/plain", och kommer att kodas med "Content-Transfer-Encoding: quoted-printable".
-  \item[25 poäng] och föredragna delen kommer att vara av typ "text/html". Alla <HTML-taggar> och \&entiteter; ska tas bort.
+  \item[25 poäng] den föredragna delen kommer att vara av typ "text/html". Alla <HTML-taggar> och \&entiteter; ska tas bort.
 \end{enumerate}
