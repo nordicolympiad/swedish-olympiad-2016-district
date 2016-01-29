@@ -11,8 +11,8 @@ typedef vector<int> vi;
 
 void read(string& line) {
 	getline(cin, line);
-	if (!line.empty() && line[line.size()-1] == '\r')
-		line.erase(line.end()-1);
+	if (!line.empty())
+		assert(line[line.size()-1] != '\r');
 }
 
 bool startswith(const string& a, const string& b) {
@@ -60,6 +60,13 @@ int main() {
 		read(str);
 		if (str.empty()) break;
 		if (startswith(str, "Content-Type:")) {
+			bool br = false;
+			for (;;) {
+				read(term);
+				if (!term.empty() && isspace(term[0])) str += term;
+				else if (term.empty()) br = true;
+				else break;
+			}
 			str = str.substr(string("Content-Type:").size());
 			size_t ind = str.find("boundary=");
 			if (ind == string::npos) continue;
@@ -73,6 +80,7 @@ int main() {
 				if (ind == string::npos) ind = str.size();
 			}
 			boundary = str.substr(0, ind);
+			if (br) break;
 		}
 	}
 	assert(!boundary.empty());
