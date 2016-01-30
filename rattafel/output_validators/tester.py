@@ -9,15 +9,16 @@ import sys
 import re
 
 def die(msg):
-    print(msg)
+    print(argv[3] + os.sep + "score.txt", file=sys.stderr)
     f = open(argv[3] + os.sep + "score.txt", "wt+", encoding="utf-8")
     f.write("0")
     f.close()
     exit(43)
 
 def accept(score):
+    print(argv[3] + os.sep + "score.txt", file=sys.stderr)
     f = open(argv[3] + os.sep + "score.txt", "wt+", encoding="utf-8")
-    f.write("%f" % score)
+    f.write(str(score))
     f.close()
     exit(42)
 
@@ -48,6 +49,6 @@ def judge(a,b,c):
 
 score = sum(judge(a, b, c) for a, b, c in zip(in_text, team_text, correct))
 
-case_score = int(argv[4])
+case_score = 0 if correct.startswith("MARLEY") else 60
 
 accept(case_score * score / errors)
